@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Event</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <video autoplay muted loop class="video-bg">
+      <source src="../static/addevent.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="add_event">
+      <div class="container">
+        <h2>Add Event</h2>
+        <form action="{{ url_for('add_event') }}" method="POST">
+          <input
+            type="text"
+            name="event_name"
+            placeholder="Event Name"
+            required
+          /><br />
+          <textarea
+            name="event_description"
+            placeholder="Event Description"
+            required
+          ></textarea
+          ><br />
+          <input type="date" name="event_date" required /><br />
+          <button type="submit">Add Event</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <p>&copy; 2024 ECE Department | All rights reserved.</p>
+  </footer>
+  <style>
+    .video-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+    .add_event {
+      max-width: 300px;
+      background-color: white;
+      margin: 150px auto;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+    }
+    footer {
+      background-color: #0000;
+      color: #fff;
+      text-align: center;
+      padding: 3px;
+
+      bottom: 0;
+    }
+  </style>
+</html>

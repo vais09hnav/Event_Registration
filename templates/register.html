@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register for Event</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <video autoplay muted loop class="video-bg">
+      <source src="../static/register.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="register">
+      <div class="container">
+        <h1>Register for Event</h1>
+        <form
+          action="{{ url_for('register', event_id=event_id) }}"
+          method="POST"
+        >
+          <label for="name">Name:</label>
+          <input type="text" name="name" required /><br />
+
+          <label for="contact">Contact Number:</label>
+          <input type="text" name="contact" required /><br />
+
+          <label for="additional_info">Additional Information:</label>
+          <textarea name="additional_info"></textarea><br />
+
+          <button type="submit">Register</button>
+          <a href="{{ url_for('events') }}">Back to Events</a>
+
+        </form>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <p>&copy; 2024 ECE Department | All rights reserved.</p>
+    <a href="{{url_for('index')}}" style="color: white;">Back To Home</a>
+  </footer>
+  <style>
+    .video-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+    .register {
+      max-width: 300px;
+      background-color: white;
+      margin: 150px auto;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+    }
+    footer {
+      background-color: #0000;
+      color: #fff;
+      text-align: center;
+      padding: 3px;
+      bottom: 0;
+    }
+  </style>
+</html>

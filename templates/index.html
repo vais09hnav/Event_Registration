@@ -1,0 +1,234 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link rel="icon" href="../static/aamec.png" />
+    <header>
+      <img src="../static/aamec.png" alt="College Logo" class="logo" />
+      <img src="../static/nba.png" alt="NBA Logo" class="nbalogo" />
+      <h1 style="color: white">ECE Department Symposium 2024</h1>
+      <h1 style="color: white">
+        Welcome to the annual symposium of the Electronics and Communication
+        Engineering Department
+      </h1>
+      <h1 class="banner-text">ELECTROF3ST</h1>
+      <div class="container">
+        <h1>
+          Welcome to (Electrofest 2k24-2k25) A National Level Technical Symposium
+          Organised by ECE Department
+        </h1>
+        <a href="{{ url_for('login') }}">User Login |</a>
+        <a href="{{ url_for('signup') }}">Sign Up |</a>|
+        <a href="{{ url_for('admin') }}">Admin</a>
+      </div>
+    </header>
+  </head>
+
+  <body>
+    <div class="video-background">
+      <video autoplay muted loop class="video-bg">
+        <source src="../static/bgvideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- Main Content -->
+      <div class="content">
+        <h1 style="color: black;">Sign Up and Then Login To Register for the  Respective Events</h1>
+        <h1 style="color: black;">Join us for an insightful event</h1>
+         </div>
+    </div>
+   
+    <section id="about">
+      <h2>About the Symposium</h2>
+      <p>
+        This symposium brings together industry experts, researchers, and
+        students to discuss the latest advancements in electronics and
+        communication technology.
+      </p>
+    </section>
+
+    <section id="schedule">
+      <h2>Schedule</h2>
+      <div class="schedule">
+        <div class="card">
+          <h3>Day 1: Technology Trends</h3>
+          <p>10:00 AM - Keynote Address by Dr. Abdul Kalam</p>
+          <p>12:00 PM - Workshop on IoT Applications</p>
+          <a href="{{ url_for('login') }}">User Login</a>
+        </div>
+        <div class="card">
+          <h3>Day 2: Future Innovations</h3>
+          <p>10:00 AM - Panel Discussion on AI in ECE</p>
+          <p>1:00 PM - Networking Lunch</p>
+          <a href="{{ url_for('login') }}">User Login</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="guest">
+      <h2>Speakers</h2>
+      <div class="guest">
+        <div class="card">
+          <h3>Sylendra Babu IPS</h3>
+          <p>Retired IPS Officer</p>
+          <a href="https://en.wikipedia.org/wiki/C._Sylendra_Babu">Know More</a>
+        </div>
+
+        <div class="card">
+          <h3>Mahendra Singh Dhoni</h3>
+          <p>Retired Indian Cricketer And a Good Motivator</p>
+          <a href="https://en.wikipedia.org/wiki/MS_Dhoni">Know More</a>
+        </div>
+      </div>
+      <h2>Special Guest</h2>
+      <div class="guest">
+        <div class="card">
+          <h3>Narendra Modi</h3>
+          <p>Honble Prime Minister OF India</p>
+          <a href="https://en.wikipedia.org/wiki/Narendra_Modi">Know More</a>
+        </div>
+
+        <div class="card">
+          <h3>Thalapathy Vijay</h3>
+          <p>Leader OF TVK Party And a good Actor</p>
+          <a href="https://en.wikipedia.org/wiki/Vijay_(actor)">Know More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: aamec@ece.edu.in</p>
+      <p>Phone: +91 9876543210</p>
+    </section>
+  </body>
+  <footer>
+    <p>&copy; 2024 ECE Department | All rights reserved.</p>
+  </footer>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0000;
+      color: #333;
+    }
+    header {
+      background-color: #0000;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    section {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    header h1 h2 {
+      color: white;
+    }
+    .logo {
+      width: 80px;
+      height: auto;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .nbalogo {
+      width: 80px;
+      height: auto;
+      position: absolute;
+      top: 10px;
+      left: 1800px;
+    }
+    .guest,
+    .schedule {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(148, 9, 9, 0.616);
+      padding: 1rem;
+      width: calc(50% - 1rem);
+      box-sizing: border-box;
+    }
+    #contact {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      margin-top: 2rem;
+    }
+
+    .video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      object-fit: fill;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding-top: 20%;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      color: white;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+    }
+    .banner-text{
+      font-size: 4em;                   
+    font-weight: bold;
+    text-align: center;
+    color: transparent;               
+    background-image: linear-gradient(90deg, #d73107, #d3670f);  
+    background-clip: text;             
+    -webkit-background-clip: text;     
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  
+    margin: 0;
+    padding: 20px 0;                  
+    background-color: #000000;        
+    }
+
+    footer {
+      background-color: #a81818;
+      color: #fff;
+      text-align: center;
+      padding: 3px;
+      bottom: 0;
+    }
+  </style>
+</html>

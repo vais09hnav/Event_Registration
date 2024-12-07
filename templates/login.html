@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+     
+
+    <div class="video-background">
+        <video autoplay muted loop class="video-bg">
+            <source src="../static/lodin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class=login > 
+        <h1>Login</h1>
+        <p>Please enter your credentials to log in</p>
+        
+        <form action="{{ url_for('login') }}" method="POST">
+            <input type="email" name="email" placeholder="Enter your Email" required><br>
+           <input type="password" name="password" placeholder="Enter Your Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    
+</body>
+<footer>
+    <p>&copy; 2024 ECE Department | All rights reserved.</p>
+    <a href="{{url_for('index')}}" style="color: black;">Back To Home</a>
+</footer>
+<style>
+    .video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; 
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.login{
+    max-width: 300px;
+    background-color: white;
+     margin: 150px auto; 
+     padding: 2rem; 
+     border: 1px solid #ddd; 
+     border-radius: 8px; 
+     text-align: center
+}
+footer {
+            background-color: #0000;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+           
+            
+            bottom: 0;
+        }
+
+</style>
+</html>

@@ -1,0 +1,105 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop class="video-bg">
+            <source src="../static/admin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+    </div>
+    
+       
+        <div class=admin > 
+            <h2>Admin Dashboard</h2>
+            <p>Admins Can Manage All The Datas</p>
+
+        <!-- Event Management Section -->
+       
+            <h3>Event Details</h3>
+            {% if events %}
+                <ul>
+                    {% for event in events %}
+                        <li>
+                            <strong>{{ event[1] }}</strong> - {{ event[2] }} <br>
+                            Date: {{ event[3] }} <br>
+                            <strong>Registered Users:</strong> 
+                            {% if event[4] %}
+                                {{ event[4] }}
+                            {% else %}
+                                No registrations yet.
+                            {% endif %}
+                            <br>
+                            <a href="{{ url_for('edit_event', event_id=event[0]) }}">Edit</a> | 
+                            <a href="{{ url_for('delete_event', event_id=event[0]) }}">Delete</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No events available. Add a new event below.</p>
+            {% endif %}
+            <button onclick="window.location.href='{{ url_for('add_event')}}';">Add Event</button>
+       
+
+        <!-- Registered Students Section -->
+        
+            <h3>Registered Students</h3>
+            {% if events %}
+                <ul>
+                    {% for event in events %}
+                        <li>
+                            <strong>{{ event[1] }}</strong> - Registrations: 
+                            {% if event[4] %}
+                                {{ event[4] }}
+                            {% else %}
+                                No registrations yet.
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No registrations available.</p>
+            {% endif %}
+        </div>
+   
+</body>
+<footer>
+    <p>&copy; 2024 ECE Department | All rights reserved.</p>
+    <a href="{{url_for('index')}}" style="color: white;">Back To Home</a>
+</footer>
+<style>
+    .video-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; 
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.admin{
+    max-width: 300px;
+    background-color: white;
+     margin: 150px auto; 
+     padding: 2rem; 
+     border: 1px solid #ddd; 
+     border-radius: 8px; 
+     text-align: center
+}
+footer {
+            background-color: #0000;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+            bottom: 0;
+        }
+</style>
+</html>
